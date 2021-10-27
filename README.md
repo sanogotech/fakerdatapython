@@ -6,6 +6,7 @@ faker.Faker can take a locale as an argument, to return localized data. If no lo
  faker --version
  ```
 ##  Docs
+- https://faker.readthedocs.io/en/master/index.html
 - https://www.docstring.fr/blog/generer-des-donnees-aleatoires-avec-faker/
 - https://github.com/sanogotech/faker-fakedatagenerator
 - https://faker.readthedocs.io/en/stable/providers.html

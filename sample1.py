@@ -1,5 +1,6 @@
-
 from faker import Faker
+from faker.providers import DynamicProvider
+
 
 # To create a json file
 import json        
@@ -10,7 +11,12 @@ from random import randint
 fake = Faker()
 #'hi_IN' changed the language
 
-  
+def i18ntab():
+    fake = Faker(['it_IT', 'en_US', 'ja_JP'])
+    for _ in range(10):
+        print(fake.name())
+    
+    
 def input_dataJson(x): 
   
     # dictionary 
@@ -22,6 +28,7 @@ def input_dataJson(x):
         student_data[i]['address']= fake.address() 
         student_data[i]['latitude']= str(fake.latitude()) 
         student_data[i]['longitude']= str(fake.longitude()) 
+        
     print(student_data) 
   
     # dictionary dumped as json in a json file 
@@ -89,6 +96,24 @@ def printSequenceWord():
     for i in range(0, 5): 
         # You need to use ext_word_list = listnameyoucreated 
         print(fake.sentence(ext_word_list = word_list)) 
+        
+def  dynamicCustomProvider():
+    print('--- dynamicCustomProvider ---')
+    medical_professions_provider = DynamicProvider(
+         provider_name="nom_ivoirien",
+         elements=["Koffi", "Adjo", "Sanogo", "Ouga", "Tapé", "Yéo","Konan","Kouakou","Bakayoko","Adjoumani","Ouattara","Adjobi","Diomandé","Tia"],
+    )
+
+    fake = Faker()
+
+    # then add new provider to faker instance
+    fake.add_provider(medical_professions_provider)
+
+    # now you can use:
+
+    
+    for _ in range(5):
+        print(fake.nom_ivoirien())
 
 def main():
     print("hello world  Faker ...!")
@@ -104,6 +129,10 @@ def main():
     hashesanduids()
     print(" ------------------------------------------\n")
     genererDesdonneesSpecifiques()
+    print(" ------------------------------------------\n")
+    i18ntab()
+    print(" ------------------------------------------\n")
+    dynamicCustomProvider()
 
 if __name__ == "__main__":
     main()

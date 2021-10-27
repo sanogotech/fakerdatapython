@@ -45,6 +45,17 @@ def printName():
     fake = Faker('fr_FR')
     for seq in range(10):
         print(fake.name())
+        
+        
+def genererDesdonneesSpecifiques():
+
+    for _ in range(5):
+        print(fake.numerify(text='%%%-%-%%%%-%%%%-%%%-%%'))
+        
+    print(" ------------------------------------------\n")
+    
+    for _ in range(5):
+        print(fake.bothify(text='Product Number: ????-########'))
 
 def printEmailName():
     #fake = Faker('hi_IN')
@@ -60,6 +71,15 @@ def printEmailName():
     print(fake.latitude(), fake.longitude())
     print(fake.url())
 
+
+def hashesanduids(): 
+
+    print(f'md5: {fake.md5()}')
+    print(f'sha1: {fake.sha1()}')
+    print(f'sha256: {fake.sha256()}')
+    print(f'uuid4: {fake.uuid4()}')
+   
+
 def printSequenceWord(): 
     # List has words that we want in our sentence 
     word_list = ["GFG", "Geeksforgeeks","shaurya", "says", "Gfg","GEEKS"] 
@@ -72,11 +92,18 @@ def printSequenceWord():
 
 def main():
     print("hello world  Faker ...!")
+    print(" ------------------------------------------ \n")
     #printEmailName()
     #printName()
     uniqueValuesNames()
+    print(" ------------------------------------------\n")
     input_dataJson(2)
+    print(" ------------------------------------------\n")
     printSequenceWord()
+    print(" ------------------------------------------\n")
+    hashesanduids()
+    print(" ------------------------------------------\n")
+    genererDesdonneesSpecifiques()
 
 if __name__ == "__main__":
     main()
